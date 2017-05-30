@@ -22,6 +22,10 @@ function getProxyId(hostname, callback) {
 }
 
 function sendRequest() {
+    app.resStatusCode = '';
+    app.resHeaders = '';
+    app.resBody = '';
+    
     var url = app.url;
     var method = app.method;
     var urlParser = document.createElement('a');
