@@ -2,7 +2,7 @@ var app = new Vue({
     el: '#app',
     data: {
         method: 'GET',
-        url: '',
+        url: 'https://code.visualstudio.com/feed.xml',
         headers: '{}',
         body: '',
         resStatusCode: '',
