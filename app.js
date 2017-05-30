@@ -15,7 +15,7 @@ var app = new Vue({
 });
 
 function getProxyId(hostname, callback) {
-    jQuery.get('https://restbug.azurewebsites.net/api/getProxy?hostname=' + hostname, function(res) {
+    jQuery.get('https://' + azFuncName + '.azurewebsites.net/api/getProxy?hostname=' + hostname, function(res) {
         var proxyId = res.proxyId;
         callback(proxyId);
     });
@@ -25,7 +25,7 @@ function sendRequest() {
     app.resStatusCode = '';
     app.resHeaders = '';
     app.resBody = '';
-    
+
     var url = app.url;
     var method = app.method;
     var urlParser = document.createElement('a');
@@ -41,7 +41,7 @@ function sendRequest() {
     }
     var body = app.body || null;
     getProxyId(hostname, function(proxyId) {
-        var url = 'https://restbug.azurewebsites.net/proxy/' + proxyId + rest;
+        var url = 'https://' + azFuncName + '.azurewebsites.net/proxy/' + proxyId + rest;
         jQuery.ajax({
             url: url,
             method: method,
