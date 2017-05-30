@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<title>REST Bug</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div class="container" id="app">
+    <h1>REST Bug</h1>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <select class="form-control" v-model="method">
+                    <option value="GET">GET</option>
+                    <option value="HEAD">HEAD</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                    <option value="CONNECT">CONNECT</option>
+                    <option value="OPTIONS">OPTIONS</option>
+                    <option value="TRACE">TRACE</option>
+                    <option value="PATCH">PATCH</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="form-group">
+                <input type="text" class="form-control" id="url" placeholder="URL" v-model="url">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="headers">Headers</label>
+                <textarea id="headers" class="form-control" rows="3" v-model="headers"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea id="body" class="form-control" rows="3" v-model="body"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-primary pull-right" v-on:click="sendRequest">Send Request</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="resStatusCode">Response Status Code</label>
+                <input type="text" id="resStatusCode" class="form-control" v-model="resStatusCode" disabled></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="resHeaders">Response Headers</label>
+                <textarea id="resHeaders" class="form-control" rows="3" v-model="resHeaders" disabled></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="resBody">Response Body</label>
+                <textarea id="resBody" class="form-control" rows="10" v-model="resBody" disabled></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
